@@ -19,7 +19,9 @@
 			"upgradePackages": false
 		},
 		"ghcr.io/devcontainers/features/python:1": "none",
-		"ghcr.io/devcontainers/features/node:2": "none",
+		// No node:2 here. With "none" it installs nothing, but its install step
+		// leaves /tmp at 0755, so the python feature's apt-get update then fails
+		// with "Unable to mkstemp /tmp/apt.sig.* - Permission denied".
 		"ghcr.io/devcontainers/features/git:1": {
 			"version": "latest",
 			"ppa": "false"
