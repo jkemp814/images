@@ -1,0 +1,36 @@
+{
+	"name": "Rust",
+	"build": {
+		// Shared with the image test harness so there is a single Dockerfile.
+		// Bump DIGEST: podman image inspect --format '{{index .RepoDigests 0}}' docker.io/library/rust:1-trixie
+		"dockerfile": "../../src/rust/.devcontainer/Dockerfile",
+		"context": "../../src/rust/.devcontainer",
+		// Dockerfile: ARG VARIANT="trixie"; FROM rust:1-${VARIANT}
+		"args": {
+			"VARIANT": "trixie@sha256:09027f873d45b8ecd1dc86f1fa13b7a62b875c961f017a0e331267b350430137"
+		}
+	},
+	"features": {
+		"ghcr.io/devcontainers/features/common-utils:2": {
+			"installZsh": true,
+			"username": "vscode",
+			"userUid": "1000",
+			"userGid": "1000",
+			"upgradePackages": false
+		},
+		"ghcr.io/devcontainers/features/rust:1": "latest",
+		"ghcr.io/devcontainers/features/git:1": {
+			"version": "latest",
+			"ppa": "false"
+		}
+	},
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "rustc --version",
+
+	// Set `remoteUser` to `root` to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "vscode"
+}
