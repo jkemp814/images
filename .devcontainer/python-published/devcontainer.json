@@ -1,0 +1,8 @@
+{
+	"name": "Python (published image)",
+	// Prebuilt from this repo's src/python image: no build, no features, one CDN pull.
+	// User, Python settings and extensions come from the image's devcontainer.metadata label.
+	// Bump DIGEST: curl -sI -H 'Accept: application/vnd.oci.image.index.v1+json' \
+	//   https://mcr.microsoft.com/v2/devcontainers/python/manifests/3-3.15-trixie | grep -i docker-content-digest
+	"image": "mcr.microsoft.com/devcontainers/python:3-3.15-trixie@sha256:eb39f07323784af4c7558396808ceb01dacbe6dd7c63614f34d0235d0344a0ff"
+}

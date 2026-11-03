@@ -1,0 +1,8 @@
+{
+	"name": "Rust (published image)",
+	// Prebuilt from this repo's src/rust image: no build, no features, one CDN pull.
+	// User, extensions and SYS_PTRACE come from the image's devcontainer.metadata label.
+	// Bump DIGEST: curl -sI -H 'Accept: application/vnd.oci.image.index.v1+json' \
+	//   https://mcr.microsoft.com/v2/devcontainers/rust/manifests/2-1-trixie | grep -i docker-content-digest
+	"image": "mcr.microsoft.com/devcontainers/rust:2-1-trixie@sha256:2bf8d694491c0cd5edb860bd984f45b50a0207df75fdc707c378cf7c1ac83620"
+}
